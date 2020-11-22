@@ -1,0 +1,34 @@
+VAR
+  i,j,k,l : INTEGER := 0;
+  x,y : INTEGER;
+  sum : INTEGER := 0;
+  write("write 1st array length");                  //ask user to input length value for the first array
+  read(x);                                          //read arr1 length (input value)
+  write("write 2nd array length");
+  read(y);                                          //read arr2 length (input value)
+  arr1 : ARRAY_OF INTEGER[x];                       //ask user to input length value for the second array
+  arr2 : ARRAY_OF INTEGER[y];
+
+BEGIN
+
+  FOR i FROM 0 TO arr1.length-1 DO                  //fill arr1 with input values
+    write("enter a number value in array");
+    read(arr1[i]);
+  END_FOR
+
+  FOR j FROM 0 TO arr2.length-1 DO                  //fill arr2 with input values
+    write("enter a number value in array");
+    read(arr1[j]);
+  END_FOR
+
+  FOR k FROM 1 TO arr1.length-1 STEP 1  DO
+    FOR l FROM 1 TO arr2.length-1 STEP 1 DO
+      IF (arr1[k] <> arr2[l]) THEN                   // if the 2 numbers are different then break from the loop (for l..)
+        BREAK;
+      ELSE
+        sum := sum + arr1[k] + arr2[l];                       // if not then they should be identical
+      END_IF
+    END_FOR
+  END_FOR
+  write(sum);
+END
